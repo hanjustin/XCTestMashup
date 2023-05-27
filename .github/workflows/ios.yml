@@ -1,0 +1,41 @@
+name: iOS Test
+
+permissions:
+  contents: read
+  issues: write
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Xcode
+        run: sudo xcode-select --switch /Applications/Xcode.app
+
+      - name: Build and Test
+        run: |
+          xcodebuild clean test -scheme XCTestMashup -destination "platform=iOS Simulator,OS=16.2,name=iPhone 14"
+
+      - name: Create Issue on Failed workflow
+        if: ${{ failure() }}
+        uses: actions-ecosystem/action-create-issue@v1
+        with:
+          github_token: ${{ secrets.github_token }}
+          title: Test fail `${{ github.sha }}`
+          body: |
+            ### Context
+            [Failed Run](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
+            [Codebase](https://github.com/${{ github.repository }}/tree/${{ github.sha }})
+            Workflow name - `${{ github.workflow }}`
+            Job -           `${{ github.job }}`
+            status -        `${{ job.status }}`
+            
