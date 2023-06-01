@@ -10,12 +10,12 @@ import SwiftUI
 struct MainView: View {
     var body: some View {
         TabView {
-            EventListView()
+            MyEventListView()
                 .tabItem {
                     Label("List", systemImage: "list.dash")
                 }
             
-            EventSearchView()
+            EventSearchView(viewModel: .init())
                 .tabItem {
                     Label("Search", systemImage: "magnifyingglass")
                 }
