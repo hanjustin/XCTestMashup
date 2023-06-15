@@ -8,21 +8,27 @@
 import Foundation
 
 extension EventDetailView {
-    @MainActor class ViewModel: ObservableObject {
+    class ViewModel: ObservableObject {
         enum State {
             case createMode
-            case readMode
-            case updateMode
+            case readMode(EventEntity)
+            case editMode(EventEntity)
         }
         
-        @Published var event: Event = .mock
         let state: State
+        var eventEntity: EventEntity
         
-        // Ideally, the state which is being used for permission check should be passed from the server or checked at view model
+        // Ideally, the state which is being used for permission check should be passed from the server or checked at view model to check if the user is authorized.
         // Instead of view passing 'readMode' or 'updateMode'
-        init(state: State, _ event: Event = .mock) {
+        init(state: State) {
             self.state = state
-            self.event = event
+
+            switch state {
+            case .createMode:
+                fatalError("Not implemented Yet")
+            case .editMode(let eventEntity), .readMode(let eventEntity):
+                self.eventEntity = eventEntity
+            }
         }
 
         func create() {

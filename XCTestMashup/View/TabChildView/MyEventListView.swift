@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct MyEventListView: View {
-    @State private var showingCreateEventDetail = false
-
     var body: some View {
         NavigationStack {
             EventListView(viewmodel: .init())
@@ -17,18 +15,15 @@ struct MyEventListView: View {
             .toolbar {
                 addEventButton
             }
-            .navigationDestination(for: Event.self) { event in
-                EventDetailView(viewModel: .init(state: .updateMode, event))
-            }
-            .navigationDestination(isPresented: $showingCreateEventDetail) {
-                EventDetailView(viewModel: .init(state: .createMode))
+            .navigationDestination(for: EventEntity.self) { event in
+                EventDetailView(viewModel: .init(state: .editMode(event)))
             }
         }
     }
     
     var addEventButton: some View {
-        Button {
-            showingCreateEventDetail = true
+        NavigationLink {
+
         } label: {
             Image(systemName: "plus")
         }

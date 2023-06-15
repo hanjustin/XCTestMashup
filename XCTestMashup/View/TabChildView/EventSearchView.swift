@@ -13,30 +13,30 @@ struct EventSearchView: View {
     @StateObject var viewModel: ViewModel
     
     var body: some View {
-            switch viewModel.viewState {
-            case .locationAccessNotDetermined:
-                VStack {
-                    informationText(Constants.LocationRequest)
-                    locationButton
-                }
-                
-            case .locationAccessDenied:
-                informationText(Constants.LocationDenied)
-                
-            case .fetching:
-                progressView
-                
-            case .finished:
-                NavigationStack {
-                    EventListView(viewmodel: .init())
-                        .navigationTitle(String(format: Constants.navTitleNearEvents, searchRadius))
-                        .toolbar {
-                            randomizeSearchRadiusButton
-                        }
-                        .navigationDestination(for: Event.self) { event in
-                            EventDetailView(viewModel: .init(state: .readMode, event))
-                        }
-                }
+        switch viewModel.viewState {
+        case .locationAccessNotDetermined:
+            VStack {
+                informationText(Constants.LocationRequest)
+                locationButton
+            }
+            
+        case .locationAccessDenied:
+            informationText(Constants.LocationDenied)
+            
+        case .fetching:
+            progressView
+            
+        case .finished:
+            NavigationStack {
+                EventListView(viewmodel: .init())
+                    .navigationTitle(String(format: Constants.navTitleNearEvents, searchRadius))
+                    .toolbar {
+                        randomizeSearchRadiusButton
+                    }
+                    .navigationDestination(for: EventEntity.self) { event in
+                        EventDetailView(viewModel: .init(state: .readMode(event)))
+                    }
+            }
         }
     }
     

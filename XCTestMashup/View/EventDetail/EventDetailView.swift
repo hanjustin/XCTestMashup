@@ -11,17 +11,21 @@ struct EventDetailView: View {
     @Environment(\.dismiss) var dismiss
     
     @StateObject var viewModel: ViewModel
-    @State private var showingCreateEventDetail = false
-    var isReadOnly: Bool { viewModel.state == .readMode }
+    var isReadOnly: Bool {
+        if case .readMode = viewModel.state { return true } else { return false }
+    }
     
     var body: some View {
         Form {
-            EventDetailTextFieldSectionsView(
-                name: $viewModel.event.name,
-                description: $viewModel.event.description
-            )
+            if let nameBinding = Binding<String>($viewModel.eventEntity.name),
+               let detailBinding = Binding<String>($viewModel.eventEntity.detail) {
+                EventDetailTextFieldSectionsView(
+                    name: nameBinding,
+                    description: detailBinding
+                )
+            }
 
-            if viewModel.state == .updateMode {
+            if case .editMode = viewModel.state {
                 deleteButton
             }
         }
@@ -30,11 +34,6 @@ struct EventDetailView: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             rightToolbarButton
-        }
-        .sheet(isPresented: $showingCreateEventDetail) {
-            NavigationStack {
-                EventDetailView(viewModel: .init(state: .createMode))
-            }
         }
     }
 }
@@ -57,7 +56,7 @@ private extension EventDetailView {
             switch viewModel.state {
             case .createMode:
                 Button("Create", action: { viewModel.create() })
-            case .updateMode:
+            case .editMode:
                 Button("Update", action: { viewModel.update() })
             case .readMode:
                 Button("Copy", action: { viewModel.create() })
@@ -72,13 +71,15 @@ private extension EventDetailView {
     var title: String {
         switch viewModel.state {
         case .createMode: return "New Event"
-        case .readMode, .updateMode: return viewModel.event.name
+        case .readMode, .editMode: return viewModel.eventEntity.name ?? ""
         }
     }
 }
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        EventDetailView(viewModel: .init(state: .createMode))
+        if let event = PersistentStore.getTestEventEntity() {
+            EventDetailView(viewModel: .init(state: .editMode(event)))
+        }
     }
 }

@@ -1,5 +1,5 @@
 //
-//  MainView.swift
+//  ContentView.swift
 //  XCTestMashup
 //
 //  Created by Justin Lee on 5/26/23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MainView: View {
+struct ContentView: View {
     var body: some View {
         TabView {
             MyEventListView()
@@ -26,6 +26,6 @@ struct MainView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView()
+        ContentView()
     }
 }

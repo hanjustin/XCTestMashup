@@ -14,7 +14,8 @@ struct EventListView: View {
         List {
             ForEach(viewmodel.events) { event in
                 NavigationLink(value: event) {
-                    EventRow(title: event.name, subTitle: "\(event.id)")
+                    EventRow(title: event.name ?? "",
+                             subTitle: "\(String(describing: event.id))")
                 }
             }
         }

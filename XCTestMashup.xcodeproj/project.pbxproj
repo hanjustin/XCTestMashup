@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3650487F2A188CC9005E2F04 /* XCTestMashupApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3650487E2A188CC9005E2F04 /* XCTestMashupApp.swift */; };
-		365048812A188CC9005E2F04 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365048802A188CC9005E2F04 /* MainView.swift */; };
+		365048812A188CC9005E2F04 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365048802A188CC9005E2F04 /* ContentView.swift */; };
 		365048832A188CCA005E2F04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 365048822A188CCA005E2F04 /* Assets.xcassets */; };
 		365048862A188CCA005E2F04 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 365048852A188CCA005E2F04 /* Preview Assets.xcassets */; };
 		365048902A188CCA005E2F04 /* XCTestMashupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3650488F2A188CCA005E2F04 /* XCTestMashupTests.swift */; };
@@ -24,6 +24,8 @@
 		36782AFA2A25D55900F6FDFF /* EventListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36782AF92A25D55900F6FDFF /* EventListViewModel.swift */; };
 		36782AFD2A25FB9900F6FDFF /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36782AFC2A25FB9900F6FDFF /* Event.swift */; };
 		36782AFF2A26065E00F6FDFF /* EventDetailTextFieldSectionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36782AFE2A26065E00F6FDFF /* EventDetailTextFieldSectionsView.swift */; };
+		369149052A29C316003959EA /* PersistentStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369149042A29C316003959EA /* PersistentStore.swift */; };
+		369149082A29C770003959EA /* XCTestMashup.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 369149062A29C770003959EA /* XCTestMashup.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,7 +48,7 @@
 /* Begin PBXFileReference section */
 		3650487B2A188CC9005E2F04 /* XCTestMashup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XCTestMashup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3650487E2A188CC9005E2F04 /* XCTestMashupApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestMashupApp.swift; sourceTree = "<group>"; };
-		365048802A188CC9005E2F04 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		365048802A188CC9005E2F04 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		365048822A188CCA005E2F04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		365048852A188CCA005E2F04 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3650488B2A188CCA005E2F04 /* XCTestMashupTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XCTestMashupTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,6 +66,8 @@
 		36782AF92A25D55900F6FDFF /* EventListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewModel.swift; sourceTree = "<group>"; };
 		36782AFC2A25FB9900F6FDFF /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		36782AFE2A26065E00F6FDFF /* EventDetailTextFieldSectionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailTextFieldSectionsView.swift; sourceTree = "<group>"; };
+		369149042A29C316003959EA /* PersistentStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentStore.swift; sourceTree = "<group>"; };
+		369149072A29C770003959EA /* XCTestMashup.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = XCTestMashup.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,10 +118,12 @@
 		3650487D2A188CC9005E2F04 /* XCTestMashup */ = {
 			isa = PBXGroup;
 			children = (
+				369149032A29B9FA003959EA /* Shared */,
 				36782AFB2A25FB8800F6FDFF /* Model */,
 				36782AF82A23DEFE00F6FDFF /* View */,
 				36782AF72A23DEE900F6FDFF /* ViewModel */,
 				3650487E2A188CC9005E2F04 /* XCTestMashupApp.swift */,
+				365048802A188CC9005E2F04 /* ContentView.swift */,
 				365048822A188CCA005E2F04 /* Assets.xcassets */,
 				365048842A188CCA005E2F04 /* Preview Content */,
 			);
@@ -162,7 +168,6 @@
 		36782AF82A23DEFE00F6FDFF /* View */ = {
 			isa = PBXGroup;
 			children = (
-				365048802A188CC9005E2F04 /* MainView.swift */,
 				36782B002A267E5500F6FDFF /* TabChildView */,
 				36782B012A267E7E00F6FDFF /* EventList */,
 				36782B022A267E8A00F6FDFF /* EventDetail */,
@@ -203,6 +208,23 @@
 				36782AFE2A26065E00F6FDFF /* EventDetailTextFieldSectionsView.swift */,
 			);
 			path = EventDetail;
+			sourceTree = "<group>";
+		};
+		369149032A29B9FA003959EA /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				3691499F2A2A9E2E003959EA /* CoreData */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		3691499F2A2A9E2E003959EA /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				369149042A29C316003959EA /* PersistentStore.swift */,
+				369149062A29C770003959EA /* XCTestMashup.xcdatamodeld */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -337,11 +359,13 @@
 			files = (
 				36782AEA2A21AC6700F6FDFF /* EventSearchView.swift in Sources */,
 				36782AFD2A25FB9900F6FDFF /* Event.swift in Sources */,
+				369149082A29C770003959EA /* XCTestMashup.xcdatamodeld in Sources */,
 				36782AF42A22FC6800F6FDFF /* EventSearchViewModel.swift in Sources */,
 				36782AF02A2265F000F6FDFF /* EventRow.swift in Sources */,
 				36782AF22A22A9B900F6FDFF /* MyEventListView.swift in Sources */,
-				365048812A188CC9005E2F04 /* MainView.swift in Sources */,
+				365048812A188CC9005E2F04 /* ContentView.swift in Sources */,
 				36782AE82A21AB7300F6FDFF /* EventListView.swift in Sources */,
+				369149052A29C316003959EA /* PersistentStore.swift in Sources */,
 				36782AEE2A22101D00F6FDFF /* EventDetailView.swift in Sources */,
 				36782AFA2A25D55900F6FDFF /* EventListViewModel.swift in Sources */,
 				3650487F2A188CC9005E2F04 /* XCTestMashupApp.swift in Sources */,
@@ -671,6 +695,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		369149062A29C770003959EA /* XCTestMashup.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				369149072A29C770003959EA /* XCTestMashup.xcdatamodel */,
+			);
+			currentVersion = 369149072A29C770003959EA /* XCTestMashup.xcdatamodel */;
+			path = XCTestMashup.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 365048732A188CC8005E2F04 /* Project object */;
 }

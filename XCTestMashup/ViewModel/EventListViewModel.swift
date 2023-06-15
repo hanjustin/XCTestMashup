@@ -6,11 +6,48 @@
 //
 
 import Foundation
+import CoreData
 
 extension EventListView {
-    @MainActor class ViewModel: ObservableObject {
-        let events = [Event(id: UUID(), name: "Event1"), Event(id: UUID(), name: "Event2")]
-    }
+    @MainActor class ViewModel: NSObject, ObservableObject {
+        @Published var events: [EventEntity] = []
+        private let fetchResultsController: NSFetchedResultsController<EventEntity>
+        
+        override init() {
+            let fetchRequest = EventEntity.fetchRequest()
+            fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+            self.fetchResultsController = NSFetchedResultsController(
+                                                fetchRequest: fetchRequest,
+                                                managedObjectContext: PersistentStore.preview.viewContext,
+                                                sectionNameKeyPath: nil,
+                                                cacheName: nil)
 
+            super.init()
+
+            fetchResultsController.delegate = self
+            performInitialFetch()
+        }
+        
+        private func performInitialFetch() {
+            do {
+                try fetchResultsController.performFetch()
+                guard let eventEntities = fetchResultsController.fetchedObjects else {
+                    return
+                }
+                events = eventEntities
+            } catch {
+                fatalError("Failed to fetch entities: \(error)")
+            }
+        }
+    }
 }
 
+extension EventListView.ViewModel: NSFetchedResultsControllerDelegate {
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        guard let eventEntities = controller.fetchedObjects as? [EventEntity] else {
+            return
+        }
+        
+        events = eventEntities
+    }
+}
