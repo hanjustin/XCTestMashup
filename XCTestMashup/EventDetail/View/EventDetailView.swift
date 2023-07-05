@@ -76,10 +76,3 @@ private extension EventDetailView {
     }
 }
 
-struct DetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        if let event = PersistentStore.getTestEventEntity() {
-            EventDetailView(viewModel: .init(state: .editMode(event)))
-        }
-    }
-}
