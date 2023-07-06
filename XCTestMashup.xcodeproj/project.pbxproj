@@ -26,6 +26,11 @@
 		3689608B2A54EE600057B23D /* EventService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3689608A2A54EE600057B23D /* EventService.swift */; };
 		3689608D2A55DC260057B23D /* UserDefaultsSettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3689608C2A55DC260057B23D /* UserDefaultsSettingsTests.swift */; };
 		368960902A55F0590057B23D /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3689608F2A55F0590057B23D /* SettingsManager.swift */; };
+		368960922A5637390057B23D /* NetworkLayerAsyncTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368960912A5637390057B23D /* NetworkLayerAsyncTests.swift */; };
+		368960952A563BD20057B23D /* MockUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368960942A563BD20057B23D /* MockUserDefaults.swift */; };
+		368960972A563C370057B23D /* MockAnimalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368960962A563C370057B23D /* MockAnimalService.swift */; };
+		3689609A2A563CCF0057B23D /* AnimalListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368960992A563CCF0057B23D /* AnimalListViewModel.swift */; };
+		3689609C2A563CF10057B23D /* AnimalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3689609B2A563CF10057B23D /* AnimalService.swift */; };
 		369149052A29C316003959EA /* PersistentStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369149042A29C316003959EA /* PersistentStore.swift */; };
 		369149082A29C770003959EA /* XCTestMashup.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 369149062A29C770003959EA /* XCTestMashup.xcdatamodeld */; };
 /* End PBXBuildFile section */
@@ -70,6 +75,11 @@
 		3689608A2A54EE600057B23D /* EventService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventService.swift; sourceTree = "<group>"; };
 		3689608C2A55DC260057B23D /* UserDefaultsSettingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsSettingsTests.swift; sourceTree = "<group>"; };
 		3689608F2A55F0590057B23D /* SettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
+		368960912A5637390057B23D /* NetworkLayerAsyncTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayerAsyncTests.swift; sourceTree = "<group>"; };
+		368960942A563BD20057B23D /* MockUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserDefaults.swift; sourceTree = "<group>"; };
+		368960962A563C370057B23D /* MockAnimalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAnimalService.swift; sourceTree = "<group>"; };
+		368960992A563CCF0057B23D /* AnimalListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalListViewModel.swift; sourceTree = "<group>"; };
+		3689609B2A563CF10057B23D /* AnimalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalService.swift; sourceTree = "<group>"; };
 		369149042A29C316003959EA /* PersistentStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentStore.swift; sourceTree = "<group>"; };
 		369149072A29C770003959EA /* XCTestMashup.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = XCTestMashup.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -122,6 +132,7 @@
 		3650487D2A188CC9005E2F04 /* XCTestMashup */ = {
 			isa = PBXGroup;
 			children = (
+				368960982A563C950057B23D /* AnimalList */,
 				369149032A29B9FA003959EA /* Shared */,
 				36782B002A267E5500F6FDFF /* TabChildView */,
 				36782B012A267E7E00F6FDFF /* EventList */,
@@ -145,8 +156,10 @@
 		3650488E2A188CCA005E2F04 /* XCTestMashupTests */ = {
 			isa = PBXGroup;
 			children = (
+				368960932A563BBA0057B23D /* Utilities */,
 				368960882A54ED600057B23D /* CoreDataServiceTests.swift */,
 				3689608C2A55DC260057B23D /* UserDefaultsSettingsTests.swift */,
+				368960912A5637390057B23D /* NetworkLayerAsyncTests.swift */,
 			);
 			path = XCTestMashupTests;
 			sourceTree = "<group>";
@@ -201,6 +214,24 @@
 				3689608F2A55F0590057B23D /* SettingsManager.swift */,
 			);
 			path = UserDefaults;
+			sourceTree = "<group>";
+		};
+		368960932A563BBA0057B23D /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				368960942A563BD20057B23D /* MockUserDefaults.swift */,
+				368960962A563C370057B23D /* MockAnimalService.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		368960982A563C950057B23D /* AnimalList */ = {
+			isa = PBXGroup;
+			children = (
+				368960992A563CCF0057B23D /* AnimalListViewModel.swift */,
+				3689609B2A563CF10057B23D /* AnimalService.swift */,
+			);
+			path = AnimalList;
 			sourceTree = "<group>";
 		};
 		369149032A29B9FA003959EA /* Shared */ = {
@@ -420,6 +451,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				36782AEA2A21AC6700F6FDFF /* EventSearchView.swift in Sources */,
+				3689609C2A563CF10057B23D /* AnimalService.swift in Sources */,
 				369149082A29C770003959EA /* XCTestMashup.xcdatamodeld in Sources */,
 				36782AF42A22FC6800F6FDFF /* EventSearchViewModel.swift in Sources */,
 				36782AF02A2265F000F6FDFF /* EventRow.swift in Sources */,
@@ -433,6 +465,7 @@
 				368960902A55F0590057B23D /* SettingsManager.swift in Sources */,
 				3650487F2A188CC9005E2F04 /* XCTestMashupApp.swift in Sources */,
 				36782AFF2A26065E00F6FDFF /* EventDetailTextFieldSectionsView.swift in Sources */,
+				3689609A2A563CCF0057B23D /* AnimalListViewModel.swift in Sources */,
 				36782AF62A23DECF00F6FDFF /* EventDetailViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -443,6 +476,9 @@
 			files = (
 				368960892A54ED600057B23D /* CoreDataServiceTests.swift in Sources */,
 				3689608D2A55DC260057B23D /* UserDefaultsSettingsTests.swift in Sources */,
+				368960952A563BD20057B23D /* MockUserDefaults.swift in Sources */,
+				368960922A5637390057B23D /* NetworkLayerAsyncTests.swift in Sources */,
+				368960972A563C370057B23D /* MockAnimalService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
