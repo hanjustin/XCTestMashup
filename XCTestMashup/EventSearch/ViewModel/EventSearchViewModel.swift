@@ -16,6 +16,6 @@ extension EventSearchView {
             case finished
         }
         
-        private(set) var viewState = SearchViewState.finished
+        @Published private(set) var viewState = SearchViewState.locationAccessNotDetermined
     }
 }

@@ -9,7 +9,6 @@ import CoreLocationUI
 import SwiftUI
 
 struct EventSearchView: View {
-    @State private var searchRadius = 100
     @StateObject var viewModel: ViewModel
     
     var body: some View {
@@ -29,21 +28,13 @@ struct EventSearchView: View {
         case .finished:
             NavigationStack {
                 EventListView(viewmodel: .init())
-                    .navigationTitle(String(format: Constants.navTitleNearEvents, searchRadius))
-                    .toolbar {
-                        randomizeSearchRadiusButton
-                    }
-                    .navigationDestination(for: EventEntity.self) { event in
-                        EventDetailView(viewModel: .init(state: .readMode(event)))
-                    }
             }
         }
     }
     
     private var locationButton: some View {
         LocationButton(.currentLocation) {
-            
-            
+            // TODO: Ask for location permission
         }
         .symbolVariant(.fill)
         .foregroundColor(.white)
@@ -62,23 +53,6 @@ struct EventSearchView: View {
         static var navTitleNearEvents: String { "Events in %dkm radius" }
         static let LocationRequest = "Please allow location access\nto simulate searching your area"
         static let LocationDenied = "Location access denied.\nPlease authorize it in settings"
-    }
-}
-
-// MARK: - ToolbarContent
-
-private extension EventSearchView {
-    var randomizeSearchRadiusButton: some ToolbarContent {
-        ToolbarItem(placement: .navigationBarTrailing) {
-            Button {
-                searchRadius = Int.random(in: 1...100)
-            } label: {
-                HStack {
-                    Text("Randomize search radius")
-                    Image(systemName: "dice")
-                }
-            }
-        }
     }
 }
 
