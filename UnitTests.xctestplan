@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "7311B1FE-3114-4707-8622-6A13ED652DF3",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:XCTestMashup.xcodeproj",
+        "identifier" : "3650488A2A188CCA005E2F04",
+        "name" : "XCTestMashupTests"
+      }
+    }
+  ],
+  "version" : 1
+}

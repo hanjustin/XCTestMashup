@@ -72,6 +72,8 @@
 		3689609B2A563CF10057B23D /* AnimalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalService.swift; sourceTree = "<group>"; };
 		369149042A29C316003959EA /* PersistentStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentStore.swift; sourceTree = "<group>"; };
 		369149072A29C770003959EA /* XCTestMashup.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = XCTestMashup.xcdatamodel; sourceTree = "<group>"; };
+		36940A672A5A5D6C00543A0D /* FullTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = FullTests.xctestplan; sourceTree = "<group>"; };
+		36940A682A5A5D8700543A0D /* UnitTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = UnitTests.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,8 @@
 		365048722A188CC8005E2F04 = {
 			isa = PBXGroup;
 			children = (
+				36940A682A5A5D8700543A0D /* UnitTests.xctestplan */,
+				36940A672A5A5D6C00543A0D /* FullTests.xctestplan */,
 				3650487D2A188CC9005E2F04 /* XCTestMashup */,
 				3650488E2A188CCA005E2F04 /* XCTestMashupTests */,
 				365048982A188CCB005E2F04 /* XCTestMashupUITests */,

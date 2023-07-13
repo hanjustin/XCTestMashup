@@ -1,0 +1,31 @@
+{
+  "configurations" : [
+    {
+      "id" : "65F430A1-18BA-4EDE-B1E3-51FB9B3BE3AF",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:XCTestMashup.xcodeproj",
+        "identifier" : "3650488A2A188CCA005E2F04",
+        "name" : "XCTestMashupTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:XCTestMashup.xcodeproj",
+        "identifier" : "365048942A188CCB005E2F04",
+        "name" : "XCTestMashupUITests"
+      }
+    }
+  ],
+  "version" : 1
+}
