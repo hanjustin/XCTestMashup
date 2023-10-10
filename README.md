@@ -3,15 +3,6 @@
 ![Platform backend](https://img.shields.io/badge/platform-iOS-lightgrey)
 ![CI Badge](https://github.com/hanjustin/XCTestMashup/actions/workflows/ios.yml/badge.svg)
 
-## Highlights
-* [Sample analysis outlining tech choice trade-offs and thought process behind tech decision](https://github.com/hanjustin/Trade-Offs-Analysis/blob/main/001%20-%20Sync%20UI%20%26%20data.%20Notify%20view%20to%20refresh%20when%20Core%20Data%20changes.md)
-* [Dependency injection and mocking to utilize XCTest for unit testing](#xctest-unit-testing)
-* [Xcode CLI to manage and run tests](#xcode-cli)
-
-## [Tech trade-offs analysis (LINK)](https://github.com/hanjustin/Trade-Offs-Analysis/blob/main/001%20-%20Sync%20UI%20%26%20data.%20Notify%20view%20to%20refresh%20when%20Core%20Data%20changes.md)
-
-<br>
-
 ## XCTest unit testing
 
   * **Core Data:** Improvement of Singleton pattern by creating `testing` static variable.
